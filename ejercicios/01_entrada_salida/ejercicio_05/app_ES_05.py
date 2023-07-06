@@ -5,14 +5,16 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Matias
+apellido: Machuca
+Div: I
 ---
 Ejercicio: entrada_salida_05
 ---
 Enunciado:
-Al presionar el botón  'Mostrar', se deberá obtener tanto el nombre como la edad contenida en 
-las cajas de texto correspondientes y luego mostrarlo concatenados utilizando el Dialog Alert. 
+Al presionar el botón  'Mostrar', se deberá obtener tanto el nombre como 
+la edad contenida en las cajas de texto correspondientes y luego mostrarlo 
+concatenados utilizando el Dialog Alert. 
 Ej: "Usted se llama José y su edad es 66 años"
 '''
 
@@ -41,9 +43,10 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-
-
+        nombre = self.txt_nombre.get()
+        edad = self.txt_edad.get()
+        mensaje = "Usted se llama " + nombre + " y tiene " + edad + " años."
+        alert("Ejercicio 5 E/S", mensaje)
         
         
     

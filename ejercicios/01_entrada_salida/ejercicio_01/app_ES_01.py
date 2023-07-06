@@ -6,13 +6,15 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre: Matias
+apellido: Machuca
+Div: I
 ---
 Ejercicio: entrada_salida_01
 ---
 Enunciado:
-Al presionar el  botón, se debe mostrar un mensaje como el siguiente "Esto no anda, funciona".
+Al presionar el  botón, se debe mostrar un mensaje como el siguiente 
+"Esto no anda, funciona".
 '''
 
 
@@ -29,7 +31,10 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
     def btn_mostrar_on_click(self):
-        pass
+        """Prueba git push"""
+        tittle = "Ejercicio 1 E/S"
+        message = "Esto no anda, funciona!"
+        alert(tittle, message)
 
 
 if __name__ == "__main__":

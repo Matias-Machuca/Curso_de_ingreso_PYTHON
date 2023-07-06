@@ -5,13 +5,15 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Matias
+apellido: Machuca
+Div: I
 ---
 Ejercicio: entrada_salida_02
 ---
 Enunciado:
-Al presionar el botón  'Mostrar', se deberá obtener un dato utilizando el Dialog Prompt
+Al presionar el botón  'Mostrar', se deberá obtener un dato utilizando 
+el Dialog Prompt
 y luego mostrarlo utilizando el Dialog Alert
 '''
 
@@ -28,7 +30,8 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        nombre = prompt("Nombre", "Ingrese su nombre")
+        alert("Mensaje", nombre)
         
         
     
