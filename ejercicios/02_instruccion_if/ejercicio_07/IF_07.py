@@ -5,17 +5,18 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Matias
+apellido: Machuca
+div: I
 ---
 Ejercicio: instrucion_if_07
 ---
 Enunciado:
-Los argentinos nativos y por opción desde los dieciséis (16) años y los argentinos
-naturalizados desde los dieciocho (18) años están habilitados a votar. 
-Al presionar el botón  'Mostrar', se deberá informar (utilizando el Dialog Alert) 
-si es o no posible que la persona concurra a votar en base a la información 
-suministrada.
+Los argentinos nativos y por opción desde los dieciséis (16) años y
+los argentinos naturalizados desde los dieciocho (18) años están habilitados
+a votar. Al presionar el botón 'Mostrar', se deberá informar
+(utilizando el Dialog Alert) si es o no posible que la persona concurra
+a votar en base a la información suministrada.
 '''
 
 class App(customtkinter.CTk):
@@ -43,10 +44,19 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        edad_txt = self.txt_edad.get()
+        edad_num = int(edad_txt)
+        nacionalidad = self.combobox_tipo.get()
+
+        if(edad_num > 15 and nacionalidad == "NATIVO"):
+            alert("Elecciones 2023", "Usted puede votar.")
+        elif(edad_num > 17 and nacionalidad == "NATURALIZADO"):
+            alert("Elecciones 2023", "Usted puede votar.")
+        else:
+            alert("Elecciones 2023", "Usted no puede votar.")
+
+
         
-        
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
