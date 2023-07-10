@@ -6,11 +6,22 @@ import customtkinter
 
 '''
 Todas las lámparas están  al mismo precio de $800 pesos final.
-		A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
-		B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
-		C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
-		D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
-		E.	Si el importe final con descuento suma más de $4000  se obtien un descuento adicional de 5%.
+		A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del
+        50%. 
+
+		B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace
+        un descuento del 40 % y si es de otra marca el descuento es del 30%.
+
+		C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o
+        “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca
+        el descuento es del 20%.
+
+		D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el
+        descuento es del 15%, si es  “FelipeLamparas” se hace un descuento
+        del 10 % y si es de otra marca un 5%.
+
+		E.	Si el importe final con descuento suma más de $4000  se obtien
+        un descuento adicional de 5%.
 '''
 
 class App(customtkinter.CTk):
@@ -38,7 +49,42 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        precio_lampara = 800
+        marca_lampara = self.combobox_marca.get()
+        cantidad_lampara_txt = self.combobox_cantidad.get()
+        cantidad_lampara_num = int(cantidad_lampara_txt)
+        descuento = 1
+
+        if(cantidad_lampara_num == "6" ):
+            descuento = 0.5
+        else:
+            if(cantidad_lampara_num == "5" and marca_lampara == "ArgentinaLuz"):
+                descuento = 0.6
+            else:
+                if(marca_lampara != "ArgentinaLuz"):
+                    descuento = 0.7
+                else:
+                    if(cantidad_lampara_num == "4" and marca_lampara == "ArgentinaLuz" or marca_lampara == "FelipeLamparas"):
+                        descuento = 0.75
+                    else:
+                        if(marca_lampara == "JeLuz" or marca_lampara == "HazIluminacion" or marca_lampara == "Osram"):
+                            descuento = 0.8
+                        if(cantidad_lampara_num == "3" and marca_lampara == "ArgentinaLuz"):
+                            descuento = 0.85
+                        else:
+                            if(marca_lampara == "FelipeLamparas"):
+                                descuento = 0.9
+                            else:
+                                descuento = 0.95
+
+                            precio_final_num = (cantidad_lampara_num * precio_lampara) * descuento
+                            print(descuento)
+                            precio_final_txt = str(precio_final_num)
+                                                        
+                            if(precio_final_num > 4000):
+                                precio_final_num = precio_final_num * 0.95
+                                alert("Precio", "El total es: " + precio_final_txt)
+                                    
         
     
 if __name__ == "__main__":
