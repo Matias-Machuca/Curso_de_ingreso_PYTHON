@@ -5,6 +5,12 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
+---
+nombre: Matias
+apellido: Machuca
+div: I
+---
+
 Todas las lámparas están  al mismo precio de $800 pesos final.
 		A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del
         50%. 
@@ -55,36 +61,24 @@ class App(customtkinter.CTk):
         cantidad_lampara_num = int(cantidad_lampara_txt)
         descuento = 1
 
-        if(cantidad_lampara_num == "6" ):
+        if(cantidad_lampara_num > 5):
             descuento = 0.5
         else:
-            if(cantidad_lampara_num == "5" and marca_lampara == "ArgentinaLuz"):
+            if(cantidad_lampara_num == 5 and marca_lampara == "ArgentinaLuz"):
                 descuento = 0.6
-            else:
-                if(marca_lampara != "ArgentinaLuz"):
-                    descuento = 0.7
-                else:
-                    if(cantidad_lampara_num == "4" and marca_lampara == "ArgentinaLuz" or marca_lampara == "FelipeLamparas"):
-                        descuento = 0.75
-                    else:
-                        if(marca_lampara == "JeLuz" or marca_lampara == "HazIluminacion" or marca_lampara == "Osram"):
-                            descuento = 0.8
-                        if(cantidad_lampara_num == "3" and marca_lampara == "ArgentinaLuz"):
-                            descuento = 0.85
-                        else:
-                            if(marca_lampara == "FelipeLamparas"):
-                                descuento = 0.9
-                            else:
-                                descuento = 0.95
+            elif(marca_lampara != "ArgentinaLuz"):
+                descuento = 0.7
+            elif(cantidad_lampara_num == 4):
+                if(marca_lampara == "ArgentinaLuz" or marca_lampara == "FelipeLamparas"):
+                    descuento = 0.75
+                elif(marca_lampara != "ArgentinaLuz" and marca_lampara != "FelipeLamparas"):
+                    descuento = 0.8
 
-                            precio_final_num = (cantidad_lampara_num * precio_lampara) * descuento
-                            print(descuento)
-                            precio_final_txt = str(precio_final_num)
-                                                        
-                            if(precio_final_num > 4000):
-                                precio_final_num = precio_final_num * 0.95
-                                alert("Precio", "El total es: " + precio_final_txt)
-                                    
+                
+        precio_final = (precio_lampara * cantidad_lampara_num) * descuento
+        precio_final_txt = str(precio_final)
+        alert("Atencion", "El precio final es: " + precio_final_txt)
+
         
     
 if __name__ == "__main__":

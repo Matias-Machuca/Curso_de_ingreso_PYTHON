@@ -101,7 +101,7 @@ class App(customtkinter.CTk):
         alert("B", "Lleva " + poste_q_grueso_txt + " postes de quebracho grueso de 2.4 mts.")
         alert("C", "Lleva " + poste_q_fino_txt + " postes de quebracho fino de 2.2 mts.")
         alert("D", "Lleva " + varillas_txt + " varillas.")
-        alert("E", "Lleva "+ cant_alambre_txt + " metros de alambre de alta resistencia.")
+        alert("E", "Lleva " + cant_alambre_txt + " metros de alambre de alta resistencia.")
 
 
         '''alert("Info", "El terreno tiene " + metros_cuadrados_txt + " metros cuadrados y " + metros_lineales_txt + " metros lineales de perimetro. " +  
