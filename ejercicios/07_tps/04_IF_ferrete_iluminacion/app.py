@@ -63,21 +63,25 @@ class App(customtkinter.CTk):
 
         if(cantidad_lampara_num > 5):
             descuento = 0.5
-        else:
-            if(cantidad_lampara_num == 5 and marca_lampara == "ArgentinaLuz"):
-                descuento = 0.6
-            elif(marca_lampara != "ArgentinaLuz"):
-                descuento = 0.7
-            elif(cantidad_lampara_num == 4):
-                if(marca_lampara == "ArgentinaLuz" or marca_lampara == "FelipeLamparas"):
-                    descuento = 0.75
-                elif(marca_lampara != "ArgentinaLuz" and marca_lampara != "FelipeLamparas"):
-                    descuento = 0.8
+        elif(cantidad_lampara_num == 5 and marca_lampara == "ArgentinaLuz"):
+            descuento = 0.6
+        elif(cantidad_lampara_num == 5 and marca_lampara != "ArgentinaLuz"):
+            descuento = 0.7
+        elif(cantidad_lampara_num == 4):
+            if(marca_lampara == "ArgentinaLuz" or marca_lampara == "FelipeLamparas"):
+                descuento = 0.75
+            else:
+                descuento = 0.8
+        
 
-                
         precio_final = (precio_lampara * cantidad_lampara_num) * descuento
+
+        if(precio_final > 4000):
+            precio_final = precio_final * 1.05
+
         precio_final_txt = str(precio_final)
-        alert("Atencion", "El precio final es: " + precio_final_txt)
+
+        alert("Total a pagar:", "El precio final es: $" + precio_final_txt)
 
         
     
