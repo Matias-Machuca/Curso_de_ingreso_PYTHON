@@ -55,43 +55,47 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        precio_lampara = 800
-        marca_lampara = self.combobox_marca.get()
-        cantidad_lampara_txt = self.combobox_cantidad.get()
-        cantidad_lampara_num = int(cantidad_lampara_txt)
+        marca = self.combobox_marca.get()
+        cantidad_lampara = self.combobox_cantidad.get()
+        cantidad_lampara_num = int(cantidad_lampara)
+
+        PRECIO = 800
         descuento = 1
 
-        if(cantidad_lampara_num > 5):
-            descuento = 0.5
-        elif(cantidad_lampara_num == 5):
-            if(marca_lampara == "ArgentinaLuz"):
-                descuento = 0.6
-            else:
-                descuento = 0.7
-        if(cantidad_lampara_num == 4):
-            if(marca_lampara == "ArgentinaLuz" or marca_lampara == "FelipeLamparas"):
-                descuento = 0.75
-            else:
-                descuento = 0.8
-        if(cantidad_lampara_num == 3):
-            if(marca_lampara == "ArgentinaLuz"):
-                descuento = 0.85
-            elif(marca_lampara == "FelipeLamparas"):
-                descuento = 0.9
-            else:
-                descuento = 0.95
+        match cantidad_lampara:
+            case "6" | "7" | "8" | "9" | "10" | "11" | "12":
+                descuento = 0.5
+            case "5":
+                match marca:
+                    case "ArgentinaLuz":
+                        descuento = 0.6
+                    case _:
+                        descuento = 0.7
+            case "4":
+                match marca:
+                    case "ArgentinaLuz" | "FelipeLamparas":
+                        descuento = 0.75
+                    case _:
+                        descuento = 0.8
+            case "3":
+                match marca:
+                    case "ArgentinaLuz":
+                        descuento = 0.85
+                    case "FelipeLamparas":
+                        descuento = 0.9
+                    case _:
+                        descuento = 0.95
 
+        precio_final = (PRECIO * cantidad_lampara_num) * descuento
 
-        precio_final = (precio_lampara * cantidad_lampara_num) * descuento
-
-        if(precio_final > 4000):
+        if precio_final > 4000:
             precio_final = precio_final * 0.95
 
         precio_final_txt = str(precio_final)
 
-        alert("Total a pagar:", "El precio final es: $" + precio_final_txt)
+        alert("Precio final", "El total a pagar es: $" + precio_final_txt)
 
-        
+
     
 if __name__ == "__main__":
     app = App()
