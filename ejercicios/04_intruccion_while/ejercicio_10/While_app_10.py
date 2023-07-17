@@ -43,42 +43,38 @@ class App(customtkinter.CTk):
         contador_negativos = 0
         contador_positivos = 0
         contador_ceros = 0
-        mensaje = ""
 
         while respuesta == True:
             numero = prompt("Ingreso", "Ingrese un numero")
             numero = float(numero)
             if numero < 0:
                 acumulador_negativos += numero
-                acumulador_negativos_txt = str(acumulador_negativos)
-                mensaje += "\nLa suma de numeros negativos da: " + acumulador_negativos_txt
                 contador_negativos += 1
-                contador_negativos_txt = str(contador_negativos)
-                mensaje += "\nLa cantidad de numeros negativos es: " + contador_negativos_txt
             elif numero > 0:
                 acumulador_positivos += numero
-                acumulador_positivos_txt = str(acumulador_positivos)
-                mensaje += "\nLa suma de numeros positivos es: " + acumulador_positivos_txt
                 contador_positivos += 1
-                contador_positivos_txt = str(contador_positivos)
-                mensaje += "\nLa cantidad de numeros positivos es: " + contador_positivos_txt
             else:
                 contador_ceros += 1
-                contador_ceros_txt = str(contador_ceros)
-                mensaje += "\nLa cantidad de ceros es de: " + contador_ceros_txt
-
+                
             respuesta = question("¿Continuar?", "¿Desea ingresar otro numero?")
 
         diferencia_positivos_negativos = contador_positivos - contador_negativos
         diferencia_positivos_negativos_txt = str(diferencia_positivos_negativos)
+        acumulador_negativos_txt = str(acumulador_negativos)
+        contador_negativos_txt = str(contador_negativos)
+        acumulador_positivos_txt = str(acumulador_positivos)
+        contador_positivos_txt = str(contador_positivos)
+        contador_ceros_txt = str(contador_ceros)
+
+        mensaje = "La suma de numeros negativos es: " + acumulador_negativos_txt
+        mensaje += "\nLa suma de numeros positivos es: " + acumulador_positivos_txt
+        mensaje += "\nLa cantidad de numeros negativos es: " + contador_negativos_txt
+        mensaje += "\nLa cantidad de numeros positivos es: " + contador_positivos_txt
+        mensaje += "\nLa cantidad de ceros es : " + contador_ceros_txt
         mensaje += "\nLa diferencia entre cantidad de positivos y negativos es: " + diferencia_positivos_negativos_txt
 
         alert("Resultados", mensaje)
 
-        '''PROBAR SACANDO VARIABLES DE DENTRO DE MENSAJE Y CONCATENAR FUERA DEL BUCLE
-        DEJANDO SOLO LOS STRINGS EN CADA MENSAJE'''
-
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
