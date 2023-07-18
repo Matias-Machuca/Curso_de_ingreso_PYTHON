@@ -57,12 +57,6 @@ class App(customtkinter.CTk):
 
         self.txt_producto.delete(0, 100)
         self.txt_producto.insert(0, acumulador_negativos)
-
-
-
-
-
-
     
 if __name__ == "__main__":
     app = App()

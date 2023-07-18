@@ -10,8 +10,8 @@ Apellido: Machuca
 Div: "I"
 
 Enunciado:
-Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números
-que el usuario quiera hasta que presione el botón Cancelar (en el prompt). 
+Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los
+números que el usuario quiera hasta que presione el botón Cancelar (en el prompt). 
 Luego determinar el máximo y el mínimo e informarlos en los cuadros de textos
 txt_maximo y txt_minimo respectivamente.
 
@@ -60,7 +60,6 @@ class App(customtkinter.CTk):
 
         self.txt_maximo.delete(0, 100)
         self.txt_maximo.insert(0, maximo)
-
 
 if __name__ == "__main__":
     app = App()

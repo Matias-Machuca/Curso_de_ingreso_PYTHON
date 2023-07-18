@@ -1,0 +1,9 @@
+Para ver si un string es flotante:
+def isfloat(num):
+    try:
+        float(num)
+        return True
+    except ValueError:
+        return False
+
+        
