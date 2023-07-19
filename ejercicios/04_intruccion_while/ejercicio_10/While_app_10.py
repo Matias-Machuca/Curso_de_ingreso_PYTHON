@@ -59,19 +59,13 @@ class App(customtkinter.CTk):
             respuesta = question("¿Continuar?", "¿Desea ingresar otro numero?")
 
         diferencia_positivos_negativos = contador_positivos - contador_negativos
-        diferencia_positivos_negativos_txt = str(diferencia_positivos_negativos)
-        acumulador_negativos_txt = str(acumulador_negativos)
-        contador_negativos_txt = str(contador_negativos)
-        acumulador_positivos_txt = str(acumulador_positivos)
-        contador_positivos_txt = str(contador_positivos)
-        contador_ceros_txt = str(contador_ceros)
 
-        mensaje = "La suma de numeros negativos es: " + acumulador_negativos_txt
-        mensaje += "\nLa suma de numeros positivos es: " + acumulador_positivos_txt
-        mensaje += "\nLa cantidad de numeros negativos es: " + contador_negativos_txt
-        mensaje += "\nLa cantidad de numeros positivos es: " + contador_positivos_txt
-        mensaje += "\nLa cantidad de ceros es : " + contador_ceros_txt
-        mensaje += "\nLa diferencia entre cantidad de positivos y negativos es: " + diferencia_positivos_negativos_txt
+        mensaje = "La suma de numeros negativos es: " + str(acumulador_negativos)
+        mensaje += "\nLa suma de numeros positivos es: " + str(acumulador_positivos)
+        mensaje += "\nLa cantidad de numeros negativos es: " + str(contador_negativos)
+        mensaje += "\nLa cantidad de numeros positivos es: " + str(contador_positivos)
+        mensaje += "\nLa cantidad de ceros es : " + str(contador_ceros)
+        mensaje += "\nLa diferencia entre cantidad de positivos y negativos es: " + str(diferencia_positivos_negativos)
 
         alert("Resultados", mensaje)
 

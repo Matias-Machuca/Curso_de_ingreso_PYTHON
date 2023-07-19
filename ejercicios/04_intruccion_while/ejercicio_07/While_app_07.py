@@ -47,7 +47,8 @@ class App(customtkinter.CTk):
             acumulador += numero
             respuesta = question("¿Seguimos?", "¿Desea ingresar otro numero?")
 
-        promedio = acumulador / contador
+        if contador != 0:
+            promedio = acumulador / contador
 
         self.txt_suma_acumulada.delete(0, 100)
         self.txt_suma_acumulada.insert(0, acumulador)

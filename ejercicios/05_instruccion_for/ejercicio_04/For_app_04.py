@@ -5,7 +5,12 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-Al presionar el botón Mostrar pedir valores por prompt hasta que el usuario ingrese el valor 9 (se deberá utilizar 'BREAK').
+Nombre: Matias
+Apellido: Machuca
+Div: "I"
+
+Al presionar el botón Mostrar pedir valores por prompt hasta que el usuario ingrese el valor 9
+(se deberá utilizar 'BREAK').
 '''
 
 class App(customtkinter.CTk):
@@ -21,7 +26,9 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero = prompt("Ingreso", "Ingrese un numero")
+        numero = int(numero)
+
         
     
 if __name__ == "__main__":

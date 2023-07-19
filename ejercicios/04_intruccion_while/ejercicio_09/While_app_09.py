@@ -41,17 +41,15 @@ class App(customtkinter.CTk):
 
     def btn_comenzar_ingreso_on_click(self):
         respuesta = True
-        minimo = 0
-        maximo = 0
+        minimo = None
+        maximo = None
 
         while respuesta == True:
             numero = prompt("Ingreso", "Ingresa un numero")
-            numero = float(numero)
-            minimo = numero
-            maximo = numero
-            if numero < minimo:
+            numero = int(numero)
+            if minimo == None or numero < minimo:
                 minimo = numero
-            elif numero > maximo:
+            if maximo == None or numero > maximo:
                 maximo = numero
             respuesta = question("¿Seguir?", "¿Queres ingresar otro numero?")
 
