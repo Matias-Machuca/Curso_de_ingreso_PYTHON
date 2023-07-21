@@ -47,9 +47,9 @@ class App(customtkinter.CTk):
         while respuesta == True:
             numero = prompt("Ingreso", "Ingresa un numero")
             numero = int(numero)
-            if minimo == None or numero < minimo:
+            if minimo is None or numero < minimo:
                 minimo = numero
-            if maximo == None or numero > maximo:
+            if maximo is None or numero > maximo:
                 maximo = numero
             respuesta = question("¿Seguir?", "¿Queres ingresar otro numero?")
 

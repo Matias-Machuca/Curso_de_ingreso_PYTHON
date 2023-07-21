@@ -55,8 +55,42 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        
+        apellido = prompt("Apellido", "Ingrese apellido")
+        while not apellido.isalpha():
+            apellido = prompt("Apellido", "Ingrese nuevamente su apellido")
+        self.txt_apellido.delete(0, 100)
+        self.txt_apellido.insert(0, apellido)
 
+
+        edad = prompt("Edad", "Ingrese edad")
+        while not edad.isdigit():
+            edad = prompt("Edad", "Ingrese un valor numerico")
+        edad = int(edad)
+        while edad < 18 or edad > 90:
+            edad = prompt("Edad", "Ingrese una edad valida")
+            edad = int(edad)
+        self.txt_edad.delete(0, 100)
+        self.txt_edad.insert(0, str(edad))
+
+
+        estado_civil = prompt("Estado civil", "Ingrese su estado civil seleccionando la letra correspondiente: \nA - Soltero/a \nB - Casado/a \nC - Divorciado/a \nD - Viudo/a")
+        while estado_civil != "A" and estado_civil != "B" and estado_civil != "C" and estado_civil != "D":
+            estado_civil = prompt("Estado civil", "Ingrese la letra correspondiente:\nA - Soltero/a \nB - Casado/a \nC - Divorciado/a \nD - Viudo/a")
+        self.combobox_tipo.set(estado_civil)
+
+        legajo = prompt("Legajo", "Ingrese legajo")
+        while not legajo.isdigit():
+            legajo = prompt("Legajo", "Ingrese un numero de legajo")
+        legajo = int(legajo)
+        while legajo < 1000 or legajo > 9999:
+            legajo = prompt("Legajo", "Ingrese un legajo valido")
+            legajo = int(legajo)
+        self.txt_legajo.delete(0, 100)
+        self.txt_legajo.insert(0, str(legajo))
+
+        "mejorar usando un solo while con los numeros"
+        ''' .set("Hola") para insertar en combobox'''
 
 if __name__ == "__main__":
     app = App()

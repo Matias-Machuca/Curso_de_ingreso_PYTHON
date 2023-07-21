@@ -5,7 +5,12 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-Al presionar el botón Mostrar repetir el mensaje “¿Desea continuar?” (utilizando el Dialog QUESTION) 
+Nombre: Matias
+Apellido: Machuca
+Div: "I"
+
+Al presionar el botón Mostrar repetir el mensaje “¿Desea continuar?”
+(utilizando el Dialog QUESTION) 
 hasta que el usuario conteste que no (se deberá utilizar 'BREAK').
 '''
 
@@ -22,9 +27,15 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
-    
+        respuesta = question("Alerta", "¿Desea continuar?")
+
+        while respuesta:
+            respuesta = question("Alerta", "¿Desea continuar?")
+            if respuesta is None:
+                break
+
+        alert("Mensaje", "Afuera del bucle")
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

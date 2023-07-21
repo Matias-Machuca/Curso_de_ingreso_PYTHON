@@ -9,8 +9,8 @@ Nombre: Matias
 Apellido: Machuca
 Div: "I"
 
-Al presionar el botón Mostrar pedir valores por prompt hasta que el usuario ingrese el valor 9
-(se deberá utilizar 'BREAK').
+Al presionar el botón Mostrar pedir valores por prompt hasta que el usuario ingrese el
+valor 9 (se deberá utilizar 'BREAK').
 '''
 
 class App(customtkinter.CTk):
@@ -26,11 +26,32 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        numero = prompt("Ingreso", "Ingrese un numero")
-        numero = int(numero)
 
-        
-    
+        '''valor = prompt("Valores", "Ingrese un valor")
+        while not valor.isdigit():
+            valor = prompt("Valores", "Ingrese un valor numerico")
+        valor = int(valor)'''
+
+        i = prompt("Valores", "Ingrese un valor")
+        i = int(i)
+        for i in range(0, 99999, 1):
+            if i == 9:
+                break
+            i = prompt("Valores", "Ingrese un valor valido")
+            i = int(i)
+
+        alert("msj", "Fuera del bucle")
+
+
+        '''
+
+        from itertools import count
+        for i in count():
+        "para hacer un for infinito"
+
+        '''
+
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

@@ -11,8 +11,8 @@ Nombre: Matias
 Apellido: Machuca
 Div: "I"
 
-Al presionar el botón Mostrar 5 veces un mensaje (utilizando el Dialog Alert) con números
-DESCENDENTES, desde el 1 al 5.
+Al presionar el botón Mostrar 5 veces un mensaje (utilizando el Dialog Alert) con
+números DESCENDENTES, desde el 1 al 5.
 '''
 
 class App(customtkinter.CTk):

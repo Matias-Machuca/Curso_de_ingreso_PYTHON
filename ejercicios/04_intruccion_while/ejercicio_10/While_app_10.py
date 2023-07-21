@@ -44,7 +44,7 @@ class App(customtkinter.CTk):
         contador_positivos = 0
         contador_ceros = 0
 
-        while respuesta == True:
+        while respuesta:
             numero = prompt("Ingreso", "Ingrese un numero")
             numero = float(numero)
             if numero < 0:
