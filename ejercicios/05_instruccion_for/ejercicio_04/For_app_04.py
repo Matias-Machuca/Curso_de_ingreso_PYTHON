@@ -26,33 +26,33 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-
-        '''valor = prompt("Valores", "Ingrese un valor")
-        while not valor.isdigit():
-            valor = prompt("Valores", "Ingrese un valor numerico")
-        valor = int(valor)'''
-
-        i = prompt("Valores", "Ingrese un valor")
-        i = int(i)
-        for i in range(0, 99999, 1):
-            if i == 9:
+        for _ in iter(int, 1):
+            valor = prompt("Ingreso", "Ingrese un valor")
+            while not valor.isdigit():
+                valor = prompt("Error", "Ingrese un valor numerico")
+            valor = int(valor)
+            if valor == 9:
                 break
-            i = prompt("Valores", "Ingrese un valor valido")
-            i = int(i)
-
-        alert("msj", "Fuera del bucle")
+        alert("alert", "Estoy fuera del bucle")
 
 
-        '''
 
-        from itertools import count
-        for i in count():
-        "para hacer un for infinito"
-
-        '''
+ 
 
 
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
+
+'''
+
+        from itertools import count
+        for i in count():
+        "para hacer un for infinito"
+
+        o
+
+        for _ in iter(int, 1):
+
+        '''
