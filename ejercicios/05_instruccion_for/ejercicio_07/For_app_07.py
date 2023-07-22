@@ -26,7 +26,23 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+
+        contador_numeros_divisores = 0
+        cantidad_divisores = 0
+
+        numero = prompt("Ingreso", "Ingrese un numero")
+        while not numero.isdigit():
+            numero = prompt("Error", "Ingresar solo numeros")
+        numero = int(numero)
+
+        for numero in range(1, numero + 1, 1):
+            cantidad_divisores += 1
+            if numero % cantidad_divisores == 0:
+                contador_numeros_divisores += 1
+                alert("Divisores", str(numero))
+                
+
+        alert("Divisores", "Numeros divisores encontrados: " + str(contador_numeros_divisores))
         
     
 if __name__ == "__main__":
