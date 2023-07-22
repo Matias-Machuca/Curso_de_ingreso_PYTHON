@@ -46,6 +46,7 @@ class App(customtkinter.CTk):
 
     def btn_validar_on_click(self):
 
+        # Variables/contadores/acumuladores/banderas
         contador_postulantes_no_binarios_a = 0
         minimo_edad_jr = None
         acumulador_edades_femeninas = 0
@@ -57,40 +58,43 @@ class App(customtkinter.CTk):
         contador_postulates_python = 0
         contador_postulantes_js = 0
         contador_postulantes_asp_net = 0
-        #tecnologia_mas_popular = ""
     
         for i in range(0, 10, 1):
 
-            nombre = prompt("nombre", "Ingrese nombre")
+            # Validaciones
+            nombre = prompt("Nombre", "Ingrese nombre")
             while nombre is None or not nombre.isalpha():
-                nombre = prompt("nombre", "Ingrese nuevamente su nombre")
+                nombre = prompt("Error", "Ingrese nuevamente su nombre")
 
-            edad = prompt("Edad", "Ingrese su edad ")
+            edad = prompt("Edad", "Ingrese edad ")
             while edad is None or not edad.isdigit() or int(edad) < 18:
                 edad = prompt("Error", "Ingresar edad correcta")
             edad = int(edad)
 
             genero = prompt("Genero", " Ingrese genero: F - M - NB")
             while genero != "F" and genero != "M" and genero != "NB":
-                genero = prompt("Genero", "Ingrese genero: F - M - NB")
+                genero = prompt("Error", "Ingrese genero: F - M - NB")
 
             tecnologia = prompt("Tecnologia", " Ingrese tecnologia: PYTHON - JS - ASP.NET")
             while tecnologia != "PYTHON" and tecnologia != "JS" and tecnologia != "ASP.NET":
-                tecnologia = prompt("Tecnologia", "Ingrese tecnologia: PYTHON - JS - ASP.NET")
+                tecnologia = prompt("Error", "Ingrese tecnologia: PYTHON - JS - ASP.NET")
 
             puesto = prompt("Puesto", " Ingrese puesto: Jr - Ssr - Sr")
             while puesto != "Jr" and puesto != "Ssr" and puesto != "Sr":
-                puesto = prompt("Puesto", "Ingrese puesto: Jr - Ssr - Sr")
+                puesto = prompt("Error", "Ingrese puesto: Jr - Ssr - Sr")
 
+            # Punto A
             if genero == "NB":
                 if tecnologia == "ASP.NET" or tecnologia == "JS" and puesto == "Ssr":
-                    if edad > 25 and edad < 41:
+                    if edad > 24 and edad < 41:
                         contador_postulantes_no_binarios_a += 1
 
+            # Punto B    
             if minimo_edad_jr is None or edad < minimo_edad_jr:
                 minimo_edad_jr = edad
                 jr_mas_joven = nombre
 
+            # Punto C
             if genero == "F":
                 acumulador_edades_femeninas += edad
                 contador_postulantes_femeninas += 1
@@ -101,53 +105,52 @@ class App(customtkinter.CTk):
                 acumuldor_edades_no_binarios += edad
                 contador_postulantes_no_binarios += 1
 
+            # Punto D
             if tecnologia == "PYTHON":
                 contador_postulates_python += 1
             elif tecnologia == "JS":
                 contador_postulantes_js += 1
             elif tecnologia == "ASP.NET":
                 contador_postulantes_asp_net += 1
-
+            
             if contador_postulates_python > contador_postulantes_js:
                 tecnologia_mas_popular = "PYTHON"
             elif contador_postulantes_js > contador_postulantes_asp_net:
                 tecnologia_mas_popular = "JS"
             else:
                 tecnologia_mas_popular = "ASP.NET"
-
+        
+        # Punto C
         if contador_postulantes_femeninas != 0:
             promedio_edad_femenino = acumulador_edades_femeninas / contador_postulantes_femeninas
             print("C - El promedio de edad femenino es: " + str(promedio_edad_femenino))
         else:
-            print("C - No hay postulantes femeninas")
+            print("C - No hay postulantes femeninas.")
         if contador_postulantes_masculinos != 0:
             promedio_edad_masculino = acumulador_edades_masculinos / contador_postulantes_masculinos
             print("C - El promedio de edad masculino es: " + str(promedio_edad_masculino))
         else:
-            print("C - No hay postulantes masculinos")
+            print("C - No hay postulantes masculinos.")
         if contador_postulantes_no_binarios != 0:
             promedio_edad_no_binario = acumuldor_edades_no_binarios / contador_postulantes_no_binarios
             print("C - El promedio de edad no binario es: " + str(promedio_edad_no_binario))
         else:
-            print("C - No hay postulantes no binarios")
+            print("C - No hay postulantes no binarios.")
 
+        # Punto E
         porcentaje_ingresantes_femeninos = (contador_postulantes_femeninas * 100) / 10
         porcentaje_ingresantes_masculinos = (contador_postulantes_masculinos * 100) / 10
         porcentaje_ingresantes_no_binarios = (contador_postulantes_no_binarios * 100) / 10
 
-        print("A - Postulantes no binarios: " + str(contador_postulantes_no_binarios_a))
+        print("A - Cantidad de postulantes no binarios, 25 a 40 años, Ssr, ARP.NET o JS : " + str(contador_postulantes_no_binarios_a))
 
         print("B - La/el Jr mas joven es: " + jr_mas_joven)
 
-        #print("C - El promedio de edad femenino es: " + str(promedio_edad_femenino))
-        #print("C - El promedio de edad masculino es: " + str(promedio_edad_masculino))
-        #print("C - El promedio de edad no binario es: " + str(promedio_edad_no_binario))
-
         print("D - La tecnologia con mas postulantes es: " + tecnologia_mas_popular)
 
-        print("E - El porcentaje de postulantes femeninos es: " + str(porcentaje_ingresantes_femeninos))
-        print("E - El porcentaje de postulantes masculinos es: " + str(porcentaje_ingresantes_masculinos))
-        print("E - El porcentaje de postulantes no binarios es: " + str(porcentaje_ingresantes_no_binarios))
+        print("E - El porcentaje de postulantes femeninos es: " + str(porcentaje_ingresantes_femeninos) + "%")
+        print("E - El porcentaje de postulantes masculinos es: " + str(porcentaje_ingresantes_masculinos) + "%")
+        print("E - El porcentaje de postulantes no binarios es: " + str(porcentaje_ingresantes_no_binarios) + "%")
 
 if __name__ == "__main__":
     app = App()
