@@ -59,7 +59,7 @@ class App(customtkinter.CTk):
         contador_postulantes_asp_net = 0
         #tecnologia_mas_popular = ""
     
-        for i in range(0, 2, 1):
+        for i in range(0, 10, 1):
 
             nombre = prompt("nombre", "Ingrese nombre")
             while nombre is None or not nombre.isalpha():
