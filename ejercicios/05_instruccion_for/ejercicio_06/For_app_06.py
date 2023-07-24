@@ -30,18 +30,17 @@ class App(customtkinter.CTk):
         contador_numeros_pares = 0
 
         numero = prompt("Ingreso", "Ingrese un numero")
-        while not numero.isdigit():
+        while numero is None or not numero.isdigit():
             numero = prompt("Error", "Ingresar solo numeros")
         numero = int(numero)
 
-        for numero in range(1, numero + 1, 1):
-            if numero % 2 == 0:
+        for i in range(1, numero + 1, 1):
+            if i % 2 == 0:
                 contador_numeros_pares += 1
-                alert("Pares", str(numero))
+                alert("Numeros pares", str(i))
 
         alert("Pares", "Numeros pares encontrados: " + str(contador_numeros_pares))
         
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

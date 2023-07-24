@@ -27,15 +27,15 @@ class App(customtkinter.CTk):
     def btn_mostrar_on_click(self):
 
         numero = prompt("Ingreso", "Ingrese un numero")
-        while not numero.isdigit():
+        while numero is None or not numero.isdigit():
             numero = prompt("Error", "Ingresar solo numeros")
         numero = int(numero)
 
-        for numero in range(0, 1, 1):
-            if numero % numero == 0 and numero % 1 == 0:
-                alert("Primos", "El numero " + str(numero) + " es primo")
+        for i in range(0, 1, 1):
+            if numero % numero != 0:
+                alert("Primos", "El numero " + str(i) + " es primo")
             else:
-                alert("Primos", "El numero " + str(numero) + " no es primo")
+                alert("Primos", "El numero " + str(i) + " no es primo")
     
 if __name__ == "__main__":
     app = App()

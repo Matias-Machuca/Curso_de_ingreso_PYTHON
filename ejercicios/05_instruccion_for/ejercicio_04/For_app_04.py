@@ -26,19 +26,15 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
+
         for _ in iter(int, 1):
             valor = prompt("Ingreso", "Ingrese un valor")
-            while not valor.isdigit():
+            while valor is None or not valor.isdigit():
                 valor = prompt("Error", "Ingrese un valor numerico")
             valor = int(valor)
             if valor == 9:
                 break
         alert("alert", "Estoy fuera del bucle")
-
-
-
- 
-
 
 if __name__ == "__main__":
     app = App()
