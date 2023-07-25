@@ -1,13 +1,17 @@
+'''
+Nombre: Matias
+Apellido: Machuca
+Div: "I"
+
+Al presionar el botón  'Mostrar', se deberán mostrar los números 
+almacenados en el vector lista_datos utilizando Dialog Alert para informar cada elemento.
+'''
 import tkinter
 from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-'''
-Al presionar el botón  'Mostrar', se deberán mostrar los números 
-almacenados en el vector lista_datos utilizando Dialog Alert para informar cada elemento.
-'''
 
 class App(customtkinter.CTk):
     
@@ -24,9 +28,9 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-        
-        
+
+        for elemento_de_lista in self.lista_datos:
+            alert("Elementos", str(elemento_de_lista))
     
 if __name__ == "__main__":
     app = App()
