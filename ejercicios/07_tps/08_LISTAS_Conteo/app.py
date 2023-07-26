@@ -10,8 +10,8 @@ Apellido: Machuca
 Div: "I"
 
 Enunciado:
-Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los números que el
-usuario quiera hasta que presione el botón Cancelar (en el prompt). 
+Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos los 
+números que el usuario quiera hasta que presione el botón Cancelar (en el prompt). 
 Luego calcular:
     a. La suma acumulada de los negativos
     b. La suma acumulada de los positivos
@@ -46,27 +46,31 @@ class App(customtkinter.CTk):
 
         self.lista = []
 
+
     def btn_comenzar_ingreso_on_click(self):
 
         respuesta = True
-        acumulador_negativos = 0
-        acumulador_positivos = 0
-        contador_positivos = 0
-        contador_negativos = 0
-        contador_ceros = 0
-        minimo_negativos = None
-        maximo_positivos = None
 
         while respuesta:
             numero = prompt("Ingreso", "Ingrese un numero")
-            while numero is None or not numero.isdigit():
+            while numero is None or numero == '':
                 numero = prompt("Ingreso", "Ingrese un numero")
             numero = int(numero)
             self.lista.append(numero)
 
             respuesta = question("Continuar ingreso", "¿Desea ingresar otro numero?")
+
         
-        while numero in self.lista:
+    def btn_mostrar_estadisticas_on_click(self):
+
+        acumulador_negativos = 0
+        acumulador_positivos = 0
+        contador_positivos = 0
+        contador_negativos = 0
+        contador_ceros = 0
+        bandera_positivos_negativos = True
+
+        for numero in self.lista:
             if numero > 0:
                 acumulador_positivos += numero
                 contador_positivos += 1
@@ -75,11 +79,23 @@ class App(customtkinter.CTk):
                 contador_negativos += 1
             else:
                 contador_ceros += 1
-        
 
+            if bandera_positivos_negativos == True:
+                maximo_positivo = numero
+                minimo_negativos = numero
+                bandera_positivos_negativos = False
+            else:
+                if numero > maximo_positivo:
+                    maximo_positivo = numero
+                elif numero < minimo_negativos:
+                    minimo_negativos = numero
 
-    def btn_mostrar_estadisticas_on_click(self):
-        pass
+        if contador_negativos > 0:    
+            promedio_negativos = acumulador_negativos / contador_negativos
+        else:
+            promedio_negativos = "No se ingresaron numeros negativos"
+
+        alert("Resultados", "A: " + str(acumulador_negativos) + "\nB: " + str(acumulador_positivos) + "\nC: " + str(contador_positivos) + "\nD: " + str(contador_negativos) + "\nE: " + str(contador_ceros) + "\nF: " + str(minimo_negativos) + "\nG: " + str(maximo_positivo) + "\nH: " + str(promedio_negativos))
 
 
 if __name__ == "__main__":

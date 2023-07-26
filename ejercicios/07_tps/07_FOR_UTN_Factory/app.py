@@ -47,6 +47,7 @@ class App(customtkinter.CTk):
     def btn_validar_on_click(self):
 
         # Variables/contadores/acumuladores/banderas
+        POSTULANTES = 10
         contador_postulantes_no_binarios_a = 0
         minimo_edad_jr = None
         acumulador_edades_femeninas = 0
@@ -58,8 +59,9 @@ class App(customtkinter.CTk):
         contador_postulates_python = 0
         contador_postulantes_js = 0
         contador_postulantes_asp_net = 0
+        mensaje = ""
     
-        for i in range(0, 10, 1):
+        for i in range(0, POSTULANTES, 1):
 
             # Validaciones
             nombre = prompt("Nombre", "Ingrese nombre")
@@ -84,15 +86,20 @@ class App(customtkinter.CTk):
                 puesto = prompt("Error", "Ingrese puesto: Jr - Ssr - Sr")
 
             # Punto A
+            # Corregir
             if genero == "NB":
                 if tecnologia == "ASP.NET" or tecnologia == "JS" and puesto == "Ssr":
                     if edad > 24 and edad < 41:
                         contador_postulantes_no_binarios_a += 1
 
-            # Punto B    
-            if minimo_edad_jr is None or edad < minimo_edad_jr:
+            # Punto B
+            # Corregir
+            if minimo_edad_jr is None or edad < minimo_edad_jr and puesto == "Jr":
                 minimo_edad_jr = edad
                 jr_mas_joven = nombre
+                mensaje += "\nB - La/el Jr mas joven es: " + jr_mas_joven
+            #else:
+                #mensaje += "\nB - No hay postulantes Jr"
 
             # Punto C
             if genero == "F":
@@ -112,45 +119,45 @@ class App(customtkinter.CTk):
                 contador_postulantes_js += 1
             elif tecnologia == "ASP.NET":
                 contador_postulantes_asp_net += 1
-            
-            if contador_postulates_python > contador_postulantes_js:
-                tecnologia_mas_popular = "PYTHON"
-            elif contador_postulantes_js > contador_postulantes_asp_net:
-                tecnologia_mas_popular = "JS"
-            else:
-                tecnologia_mas_popular = "ASP.NET"
+        # Punto D
+        if contador_postulates_python > contador_postulantes_js and contador_postulates_python > contador_postulantes_asp_net:
+            tecnologia_mas_popular = "PYTHON"
+        elif contador_postulantes_js > contador_postulantes_asp_net:
+            tecnologia_mas_popular = "JS"
+        else:
+            tecnologia_mas_popular = "ASP.NET"
         
         # Punto C
         if contador_postulantes_femeninas != 0:
             promedio_edad_femenino = acumulador_edades_femeninas / contador_postulantes_femeninas
-            print("C - El promedio de edad femenino es: " + str(promedio_edad_femenino))
+            mensaje += "\nC - El promedio de edad femenino es: " + str(promedio_edad_femenino)
         else:
-            print("C - No hay postulantes femeninas.")
+            mensaje += "\nC - No hay postulantes femeninas."
         if contador_postulantes_masculinos != 0:
             promedio_edad_masculino = acumulador_edades_masculinos / contador_postulantes_masculinos
-            print("C - El promedio de edad masculino es: " + str(promedio_edad_masculino))
+            mensaje += "\nC - El promedio de edad masculino es: " + str(promedio_edad_masculino)
         else:
-            print("C - No hay postulantes masculinos.")
+            mensaje += "\nC - No hay postulantes masculinos."
         if contador_postulantes_no_binarios != 0:
             promedio_edad_no_binario = acumuldor_edades_no_binarios / contador_postulantes_no_binarios
-            print("C - El promedio de edad no binario es: " + str(promedio_edad_no_binario))
+            mensaje += "\nC - El promedio de edad no binario es: " + str(promedio_edad_no_binario)
         else:
-            print("C - No hay postulantes no binarios.")
+            mensaje += "\nC - No hay postulantes no binarios."
 
         # Punto E
-        porcentaje_ingresantes_femeninos = (contador_postulantes_femeninas * 100) / 10
-        porcentaje_ingresantes_masculinos = (contador_postulantes_masculinos * 100) / 10
-        porcentaje_ingresantes_no_binarios = (contador_postulantes_no_binarios * 100) / 10
+        porcentaje_ingresantes_femeninos = (contador_postulantes_femeninas * 100) / POSTULANTES
+        porcentaje_ingresantes_masculinos = (contador_postulantes_masculinos * 100) / POSTULANTES
+        porcentaje_ingresantes_no_binarios = (contador_postulantes_no_binarios * 100) / POSTULANTES
 
-        print("A - Cantidad de postulantes no binarios, 25 a 40 años, Ssr, ARP.NET o JS : " + str(contador_postulantes_no_binarios_a))
+        mensaje += "\nA - Cantidad de postulantes no binarios, 25 a 40 años, Ssr, ARP.NET o JS : " + str(contador_postulantes_no_binarios_a)
+        
+        mensaje += "\nD - La tecnologia con mas postulantes es: " + tecnologia_mas_popular
 
-        print("B - La/el Jr mas joven es: " + jr_mas_joven)
+        mensaje += "\nE - El porcentaje de postulantes femeninos es: " + str(porcentaje_ingresantes_femeninos) + "%"
+        mensaje += "\nE - El porcentaje de postulantes masculinos es: " + str(porcentaje_ingresantes_masculinos) + "%"
+        mensaje += "\nE - El porcentaje de postulantes no binarios es: " + str(porcentaje_ingresantes_no_binarios) + "%"
 
-        print("D - La tecnologia con mas postulantes es: " + tecnologia_mas_popular)
-
-        print("E - El porcentaje de postulantes femeninos es: " + str(porcentaje_ingresantes_femeninos) + "%")
-        print("E - El porcentaje de postulantes masculinos es: " + str(porcentaje_ingresantes_masculinos) + "%")
-        print("E - El porcentaje de postulantes no binarios es: " + str(porcentaje_ingresantes_no_binarios) + "%")
+        alert("Resultados", mensaje)
 
 if __name__ == "__main__":
     app = App()
