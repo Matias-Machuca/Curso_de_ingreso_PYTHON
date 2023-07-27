@@ -38,7 +38,7 @@ class App(customtkinter.CTk):
         maximo_votos = None
         minimo_votos = None
         acumulador_votos = 0
-        cantidad_candidatos = 0
+        contador_candidatos = 0
         acumulador_edades = 0
 
         while respuesta:
@@ -64,7 +64,7 @@ class App(customtkinter.CTk):
                 candidato_menos_votos = nombre
                 edad_menos_votado = edad
 
-            cantidad_candidatos += 1
+            contador_candidatos += 1
 
             acumulador_edades += edad
 
@@ -72,13 +72,14 @@ class App(customtkinter.CTk):
 
             respuesta = question("Nuevo ingreso", "¿Desea ingresar otro/a candidato?")
 
+        promedio_edades = acumulador_edades / contador_candidatos
 
-        promedio_edades = acumulador_edades / cantidad_candidatos
+        mensaje = "Candidato con mas votos: " + candidato_con_mas_votos
+        mensaje += "\nCandidato con menos votos: " + candidato_menos_votos + " de " + str(edad_menos_votado) + " años."
+        mensaje += "\nEl promedio de edad es: " + str(promedio_edades) + " años."
+        mensaje += "\nEl total de votos es: " + str(acumulador_votos)
 
-        print(candidato_con_mas_votos + " fue el/la mas votado/a")
-        print(candidato_menos_votos + " de " + str(edad_menos_votado) + " años fue el/la menos votado/a")
-        print("El promedio de edad es: " + str(promedio_edades))
-        print("El total de votos es: " + str(acumulador_votos))
+        print(mensaje)
 
 if __name__ == "__main__":
     app = App()

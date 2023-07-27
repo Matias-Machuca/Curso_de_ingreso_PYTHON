@@ -49,17 +49,20 @@ class App(customtkinter.CTk):
 
     def btn_comenzar_ingreso_on_click(self):
 
+        self.lista.clear()
+
         respuesta = True
 
-        while respuesta:
+        while respuesta == True or respuesta == '':
             numero = prompt("Ingreso", "Ingrese un numero")
             while numero is None or numero == '':
-                numero = prompt("Ingreso", "Ingrese un numero")
+                numero = prompt("Ingreso", "Ingresar un numero")
             numero = int(numero)
             self.lista.append(numero)
 
-            respuesta = question("Continuar ingreso", "¿Desea ingresar otro numero?")
+            respuesta = prompt("Continuar ingreso", "¿Desea ingresar otro numero?")
 
+        #print(self.lista)
         
     def btn_mostrar_estadisticas_on_click(self):
 
@@ -95,7 +98,16 @@ class App(customtkinter.CTk):
         else:
             promedio_negativos = "No se ingresaron numeros negativos"
 
-        alert("Resultados", "A: " + str(acumulador_negativos) + "\nB: " + str(acumulador_positivos) + "\nC: " + str(contador_positivos) + "\nD: " + str(contador_negativos) + "\nE: " + str(contador_ceros) + "\nF: " + str(minimo_negativos) + "\nG: " + str(maximo_positivo) + "\nH: " + str(promedio_negativos))
+        mensaje = "La suma de negativos es: " + str(acumulador_negativos)
+        mensaje += "\nLa suma de positivos es: " + str(acumulador_positivos)
+        mensaje += "\nLa cantidad de numeros positivos es: " + str(contador_positivos)
+        mensaje += "\nLa cantidad de numeros negativos es: " + str(contador_negativos)
+        mensaje += "\nLa cantidad de ceros es: " + str(contador_ceros)
+        mensaje += "\nEl minimo de los negativos es: " + str(minimo_negativos)
+        mensaje += "\nEl maximo de los positivos es: " + str(maximo_positivo)
+        mensaje += "\nEl promedio de los negativos es: " + str(promedio_negativos)
+
+        alert("Estadisticas", mensaje)
 
 
 if __name__ == "__main__":

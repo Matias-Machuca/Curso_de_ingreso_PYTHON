@@ -34,10 +34,10 @@ class App(customtkinter.CTk):
             numero = prompt("Error", "Ingresar solo numeros")
         numero = int(numero)
 
-        for i in range(1, numero + 1, 1):
-            if i % 2 == 0:
+        for numero in range(1, numero + 1, 1):
+            if numero % 2 == 0:
                 contador_numeros_pares += 1
-                alert("Numeros pares", str(i))
+                alert("Pares", str(numero))
 
         alert("Pares", "Numeros pares encontrados: " + str(contador_numeros_pares))
         
