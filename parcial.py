@@ -7,11 +7,10 @@ import customtkinter
 '''
 Enunciado:
 
+A)  Al presionar el botón 'Agregar' se debera cargar el peso* de un articulo,
+el cual podra ser ingresado en gramos o en onzas 
 
-A)  Al presionar el botón 'Agregar' se debera cargar el peso* de un articulo, el cual podra ser
-ingresado en gramos o en onzas 
-
-    La unidad de medida es indicada mediante una lista desplegable.
+La unidad de medida es indicada mediante una lista desplegable.
 
 * Flotantes mayores que cero
 
@@ -20,17 +19,17 @@ Si se cargo  correctamente indicarlo con un Alert
 
 -- SOLO SE CARGARAN LOS VALORES SI Y SOLO SI SON CORRECTOS --
 
-B) Al precionar el boton mostrar se deberan listar los pesos en gramos, en onzas y su posicion en
-la lista (por terminal)
+B) Al precionar el boton mostrar se deberan listar los pesos en gramos,
+en onzas y su posicion en la lista (por terminal)
 
 Del punto C solo debera realizar dos informes,
 para determinar que informe hacer, tenga en cuenta lo siguiente:
     
-    1- Tome el ultimo numero de su DNI Personal (Ej 4) y realiza ese informe (Ej, Realizar informe
-    4)
+1- Tome el ultimo numero de su DNI Personal (Ej 4) y realiza ese informe
+(Ej, Realizar informe 4)
 
-    2- Tome el ultimo numero de su DNI Personal (Ej 4), y restarselo al numero 9 (Ej 9-4 = 5). 
-    Realiza el informe correspondiente al numero obtenido.
+2- Tome el ultimo numero de su DNI Personal (Ej 4), y restarselo al numero 9
+(Ej 9-4 = 5). Realiza el informe correspondiente al numero obtenido.
     
 EL RESTO DE LOS INFORMES LOS PUEDE IGNORAR. 
 
@@ -78,35 +77,17 @@ class App(customtkinter.CTk):
 
 
     def btn_agregar_on_click(self):
-
-        tipo_peso = self.combobox_tipo_de_peso.get()
-        peso = self.txt_peso_articulo.get()
-        while peso is None or not peso.isdigit():
-            alert("Error", "Carga incorrecta")
-            peso = self.txt_peso_articulo.get()
-        alert("Carga", "Carga correcta")
-        peso = float(peso)
-        self.lista_pesos.append(peso)
+        pass
 
         
     def btn_mostrar_on_click(self):
-
-        lista_onzas = []
-
-        print("Lista en gramos: " + self.lista_pesos)
-
-        for peso in self.lista_pesos:
-            peso * 0.035274
-            lista_onzas.append(peso)
-
-        print(lista_onzas)
+        pass
             
         
-        
-
-
+    
     def btn_informar_on_click(self):
        pass
+
 
        
 if __name__ == "__main__":
