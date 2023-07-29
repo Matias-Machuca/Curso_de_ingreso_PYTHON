@@ -77,20 +77,85 @@ class App(customtkinter.CTk):
 
 
     def btn_agregar_on_click(self):
-        pass
+        
+        peso = self.txt_peso_articulo.get()
+        tipo_peso = self.combobox_tipo_de_peso.get()
+
+        if float(peso) > 0:
+            peso = float(peso)
+            if tipo_peso == "Onzas":
+                peso = peso * 28.3495
+            self.lista_pesos.append(peso)
+            alert("Carga", "Carga exitosa")
+        else:
+            alert("Carga", "Error de carga")
+
+        self.txt_peso_articulo.delete(0, 100)
 
         
     def btn_mostrar_on_click(self):
-        pass
+
+        contador = 0
+        for peso in self.lista_pesos:
+            print("Posicion " + str(contador) + ": " + str(peso) + " gramos" + " ó " + str(peso * 0.035274) + " onzas")
+            contador += 1
             
-        
-    
+
     def btn_informar_on_click(self):
-       pass
+        # 0 - Valor (en onzas) y posicion del articulo mas pesado:
+        peso_maximo = None
+        posicion_maximo = None
+        for i in range(0, len(self.lista_pesos), 1):
+            if i == 0 or self.lista_pesos[i] > peso_maximo:
+                peso_maximo = self.lista_pesos[i]
+                posicion_maximo = i
+        if peso_maximo is not None:
+            print("El valor en onzas del articulo mas pesado es: " + str(peso_maximo * 0.035274) + " y su posicion en lista es: " + str(posicion_maximo))
+        else:
+            print("La lista esta vacia")
 
 
-       
+        # 1 - Valor (en gramos) y posicion del articulo mas liviano:
+        peso_minimo = None
+        posicion_minimo = None
+        for i in range(0, len(self.lista_pesos), 1):
+            if i == 0 or self.lista_pesos[i] < peso_minimo:
+                peso_minimo = self.lista_pesos[i]
+                posicion_minimo = i
+        if peso_minimo is not None:
+            print("El valor en gramos del articulo mas liviano es: " + str(peso_minimo) + " y su posicion en lista es: " + str(posicion_minimo))
+        else:
+            print("La lista esta vacia")
+
+
+        # 2 - Peso promedio (en onzas)
+        acumulador_pesos = 0
+        for i in range(0, len(self.lista_pesos), 1):
+            acumulador_pesos += self.lista_pesos[i]
+        if len(self.lista_pesos) != 0:
+            promedio_onzas = (acumulador_pesos * 0.035274) / len(self.lista_pesos)
+            print("El promedio es onzas es: " + str(promedio_onzas))
+        else:
+            print("La lista esta vacia")
+
+
+        # 3 - Peso promedio (en gramos)
+        acumulador_pesos = 0
+        for i in range(0, len(self.lista_pesos), 1):
+            acumulador_pesos += self.lista_pesos[i]
+        if len(self.lista_pesos) != 0:
+            promedio_gramos = acumulador_pesos / len(self.lista_pesos)
+            print("El promedio es gramos es: " + str(promedio_gramos))
+        else:
+            print("La lista esta vacia")
+
+
+        # 4 - Informar los pesos que superan el promedio (en gramos)
+        for i in range(0, len(self.lista_pesos), 1):
+            if self.lista_pesos[i] > promedio_gramos:
+                print(i)
+
+
 if __name__ == "__main__":
     app = App()
-
     app.mainloop()
