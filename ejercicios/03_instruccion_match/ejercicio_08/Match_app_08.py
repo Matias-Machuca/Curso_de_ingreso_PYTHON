@@ -16,7 +16,6 @@ Obtener el destino seleccionado en el combobox_destino, luego al presionar el bo
 de las estaciones del año.
 '''
 
-
 class App(customtkinter.CTk):
     
     def __init__(self):
@@ -37,9 +36,9 @@ class App(customtkinter.CTk):
 
         match destino:
             case "Mar del plata" | "Cataratas":
-                mensaje = "Hace calor la mayor parte del año."
-            case _:
-                mensaje = "Hace frio la mayor parte del año."
+                mensaje = "Aqui hace calor la mayor parte del año."
+            case "Bariloche" | "Ushuaia":
+                mensaje = "Aqui hace frio la mayor parte del año."
 
         alert("Clima", mensaje)
     

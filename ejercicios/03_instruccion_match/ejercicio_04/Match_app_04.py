@@ -18,7 +18,6 @@ en función del mes seleccionado:
     Si tiene 31 días
 '''
 
-
 class App(customtkinter.CTk):
     
     def __init__(self):
@@ -48,6 +47,7 @@ class App(customtkinter.CTk):
                 mensaje = "Tiene 31 dias."
 
         alert("Ej 4 match", mensaje)
+    
     
 if __name__ == "__main__":
     app = App()

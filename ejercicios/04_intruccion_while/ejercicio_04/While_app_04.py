@@ -4,7 +4,6 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-
 '''
 Nombre: Matias
 Apellido: Machuca
@@ -16,7 +15,6 @@ que ingrese un número. Se deberá validar que se encuentre entre 0 y 9 inclusiv
 En caso no coincidir con el rango, volverlo a solicitar hasta que la condición
 se cumpla
 '''
-
 
 class App(customtkinter.CTk):
     
@@ -30,20 +28,15 @@ class App(customtkinter.CTk):
         
     
     def btn_validar_numero_on_click(self):
-        numero = prompt("Ingreso", "Ingrese un numero")
-        numero = float(numero)
 
-        while numero < 0 or numero > 9:
+        numero = prompt("Ingreso", "Ingrese un numero")
+        while numero is None or not numero.isdigit() or (int(numero) < 0 or int(numero) > 9):
             alert("Denegado", "Vuelva a ingresar un numero correcto")
             numero = prompt("Ingreso", "Ingrese un numero valido")
-            numero = float(numero)
+        numero = int(numero)
 
-        alert("Ingreso", "¡Hola!")
+        alert("Ingreso", "¡Acceso permitido!")
 
-
-            
-
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

@@ -41,17 +41,15 @@ class App(customtkinter.CTk):
         edad_txt = self.txt_edad.get()
         edad_num = int(edad_txt)
 
-        if(edad_num > 0 and edad_num < 11):
+        if edad_num > 0 and edad_num < 10:
             alert("Etapa", "Niño/a.")
-        elif(edad_num > 9 and edad_num < 13):
+        elif edad_num > 9 and edad_num < 14:
             alert("Etapa", "Pre-Adolescente.")
-        elif(edad_num > 12 and edad_num < 18):
+        elif edad_num > 12 and edad_num < 18:
             alert("Etapa", "Adolescente.")
-        elif(edad_num > 17):
+        elif edad_num > 17:
             alert("Etapa", "Mayor de Edad.")
 
-
-        
     
 if __name__ == "__main__":
     app = App()

@@ -4,7 +4,6 @@ from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
-
 '''
 Nombre: Matias
 Apellido: Machuca
@@ -16,7 +15,6 @@ una letra. Se deberá validar que la letra sea ‘U’, ‘T’ o ‘N’ (en ma
 En caso no coincidir con ninguna de las letras, volverla a solicitar hasta que la
 condición se cumpla
 '''
-
 
 class App(customtkinter.CTk):
     
@@ -30,12 +28,12 @@ class App(customtkinter.CTk):
         
     
     def btn_validar_letra_on_click(self):
+
         letra = prompt("Ingreso", "Ingrese una letra:")
-
         while letra != "U" and letra != "T" and letra != "N":
-            letra = prompt("Ingreso", "Ingrese una letra:")
+            letra = prompt("Denegado", "Ingrese una letra valida")
 
-        alert("Acceso", "¡Hola de nuevo!")
+        alert("Acceso permitido", "¡Hola de nuevo!")
             
     
 if __name__ == "__main__":

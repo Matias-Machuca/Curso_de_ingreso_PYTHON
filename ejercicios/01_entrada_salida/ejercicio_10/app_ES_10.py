@@ -48,7 +48,7 @@ class App(customtkinter.CTk):
         descuento_txt = self.txt_descuento.get()
         descuento_int = float(descuento_txt)
         importe_actualizado = importe_int - ((importe_int * descuento_int) / 100)
-        alert("Con descuento", importe_actualizado)
+        alert("Descuento", "El precio con el descuento del " + str(descuento_int) + " % es: $" + str(importe_actualizado))
         
     
 if __name__ == "__main__":

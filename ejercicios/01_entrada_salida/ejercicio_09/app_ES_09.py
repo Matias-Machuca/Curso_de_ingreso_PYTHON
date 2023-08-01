@@ -48,10 +48,9 @@ class App(customtkinter.CTk):
         incremento_txt = self.txt_incremento.get()
         incremento_int = float(incremento_txt)
         sueldo_actualizado = sueldo_int + ((sueldo_int * incremento_int) / 100)
-        alert("Actualizado", sueldo_actualizado)
+        alert("Actualizado", "Su sueldo con el aumento del " + str(incremento_int) + " % es: $" + str(sueldo_actualizado))
 
         
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

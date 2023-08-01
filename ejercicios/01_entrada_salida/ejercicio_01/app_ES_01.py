@@ -32,9 +32,9 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         """Prueba git push"""
-        tittle = "Ejercicio 1 E/S"
-        message = "Esto no anda, funciona!"
-        alert(tittle, message)
+        titulo = "Ejercicio 1 E/S"
+        mensaje = "Esto no anda, funciona!"
+        alert(titulo, mensaje)
 
 
 if __name__ == "__main__":

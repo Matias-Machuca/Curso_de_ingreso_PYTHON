@@ -45,11 +45,10 @@ class App(customtkinter.CTk):
     def btn_mostrar_on_click(self):
         nombre = self.txt_nombre.get()
         edad = self.txt_edad.get()
-        mensaje = "Usted se llama " + nombre + " y tiene " + edad + " años."
+        mensaje = "Usted se llama " + nombre + " y tiene " + edad + " años de edad."
         alert("Ejercicio 5 E/S", mensaje)
         
         
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

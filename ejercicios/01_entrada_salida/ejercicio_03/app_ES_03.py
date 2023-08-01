@@ -12,9 +12,8 @@ Div: I
 Ejercicio: entrada_salida_03
 ---
 Enunciado:
-Al presionar el botón  'Mostrar', se deberá obtener contenido 
-en la caja de texto y luego 
-mostrarlo utilizando el Dialog Alert
+Al presionar el botón 'Mostrar', se deberá obtener contenido 
+en la caja de texto y luego mostrarlo utilizando el Dialog Alert
 '''
 
 class App(customtkinter.CTk):

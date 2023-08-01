@@ -16,7 +16,6 @@ botón ‘Informar’ indicar el punto cardinal de nuestro país donde se encuen
 Norte, Sur, Este u Oeste
 '''
 
-
 class App(customtkinter.CTk):
     
     def __init__(self):

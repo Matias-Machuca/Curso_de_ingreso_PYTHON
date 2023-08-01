@@ -20,8 +20,6 @@ mensajes en función del mes seleccionado:
 Aclaracion: tomamos a Julio y Agosto como los meses de invierno
 
 '''
-
-
 class App(customtkinter.CTk):
     
     def __init__(self):

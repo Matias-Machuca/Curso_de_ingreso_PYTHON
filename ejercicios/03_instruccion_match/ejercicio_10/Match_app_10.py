@@ -19,7 +19,6 @@ caso contrario mostrar “No se viaja”.
     Si es primavera: se viaja a todos los lugares menos Bariloche
 '''
 
-
 class App(customtkinter.CTk):
     
     def __init__(self):
@@ -54,26 +53,26 @@ class App(customtkinter.CTk):
                 match destino:
                     case "Bariloche":
                         mensaje = "Se viaja."
-                    case _:
+                    case "Mar del plata" | "Cataratas" | "Cordoba":
                         mensaje = "No se viaja."
             case "Verano":
                 match destino:
                     case "Mar del plata" | "Cataratas":
                         mensaje = "Se viaja."
-                    case _:
+                    case "Bariloche" | "Cordoba":
                         mensaje = "No se viaja"
-            #case "Otoño":
-               # mensaje = "Se viaja."
+            case "Otoño":
+                match destino:
+                    case "Bariloche" | "Mar del plata" | "Cataratas" | "Cordoba":
+                        mensaje = "Se viaja."
             case "Primavera":
                 match destino:
+                    case "Mar del plata" | "Cataratas" | "Cordoba":
+                        mensaje = "Se viaja"
                     case "Bariloche":
                         mensaje = "No se viaja."
-                    case _:
-                        mensaje = "Se viaja"
-            case _:
-                mensaje = "Se viaja."
 
-        alert("Viajamos?", mensaje)
+        alert("¿Se viaja?", mensaje)
             
     
 if __name__ == "__main__":

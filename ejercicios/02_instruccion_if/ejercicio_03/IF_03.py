@@ -40,14 +40,12 @@ class App(customtkinter.CTk):
         edad_txt = self.txt_edad.get()
         edad_num = int(edad_txt)
 
-        if(edad_num > 17):
+        if edad_num > 17:
             alert("Edad", "MAYOR")
         else:
             alert("Edad", "MENOR")
 
-        
-        
-    
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

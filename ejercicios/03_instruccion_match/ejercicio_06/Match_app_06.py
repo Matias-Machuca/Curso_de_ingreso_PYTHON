@@ -20,7 +20,6 @@ siguientes mensajes según la hora ingresada:
     Si no está entre 0 y las 24: ‘La hora no existe’
 '''
 
-
 class App(customtkinter.CTk):
     
     def __init__(self):
@@ -39,7 +38,6 @@ class App(customtkinter.CTk):
     
     def btn_informar_on_click(self):
         hora = self.txt_hora.get()
-        #mensaje = ""
 
         match hora:
             case "7" | "8" | "9" | "10" | "11":
@@ -49,10 +47,9 @@ class App(customtkinter.CTk):
             case "20" | "21" | "22" | "23" | "24" | "0" | "1" | "2" | "3" | "4" | "5" | "6":
                 mensaje = "Es de noche."
             case _:
-                mensaje = "La hora no existe."
+                mensaje = "La hora ingresada no existe."
 
         alert("Ej 6 match", mensaje)
-
     
     
 if __name__ == "__main__":

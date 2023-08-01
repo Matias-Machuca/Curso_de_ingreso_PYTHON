@@ -28,7 +28,6 @@ en función de la estación del año y del destino elegido:
         Córdoba tiene precio sin descuento
 '''
 
-
 class App(customtkinter.CTk):
     
     def __init__(self):
@@ -64,31 +63,30 @@ class App(customtkinter.CTk):
             case "Invierno":
                 match destino:
                     case "Bariloche":
-                        precio_final = 1.2
+                        precio = 1.2
                     case "Mar del plata":
-                        precio_final = 0.8
-                    case _:
-                        precio_final = 0.9
+                        precio = 0.8
+                    case "Cataratas" | "Cordoba":
+                        precio = 0.9
             case "Verano":
                 match destino:
                     case "Bariloche":
-                        precio_final = 0.8
+                        precio = 0.8
                     case "Mar del plata":
-                        precio_final = 1.2
-                    case _:
-                        precio_final = 1.1
-            case _:
+                        precio = 1.2
+                    case "Cataratas" | "Cordoba":
+                        precio = 1.1
+            case "Primavera" | "Otoño":
                 match destino:
+                    case "Bariloche" | "Cataratas" | "Mar del plata":
+                        precio = 1.1
                     case "Cordoba":
-                        precio_final = 0
-                    case _:
-                        precio_final = 1.1
+                        precio = 1
 
-        precio = VALOR_ESTADIA * precio_final
-        precio_txt = str(precio)
+        precio_final = VALOR_ESTADIA * precio
+        precio_final = str(precio_final)
 
-        alert("Precio", "El precio de la estadia es de: $" + precio_txt)
-                    
+        alert("Precio", "El precio de la estadia es de: $" + precio_final)                    
             
     
 if __name__ == "__main__":

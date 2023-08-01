@@ -12,12 +12,11 @@ div: I
 Ejercicio: instrucion_if_04
 ---
 Enunciado:
-Al presionar el botón  'Calcular', se deberá obtener contenido en la
+Al presionar el botón 'Calcular', se deberá obtener contenido en la
 caja de texto txtEdad, transformarlo en número y calcular si es
 adolescente (edad entre 13 y 17 años).
 Se deberá informar utilizando el Dialog alert.
 '''
-
 
 class App(customtkinter.CTk):
 
@@ -42,7 +41,7 @@ class App(customtkinter.CTk):
         edad_txt = self.txt_edad.get()
         edad_num = int(edad_txt)
 
-        if(edad_num > 12 and edad_num < 18):
+        if edad_num > 12 and edad_num < 18:
             alert("Edad", "Es adolescente.")
         else:
             alert("Edad", "No es adolescente.")

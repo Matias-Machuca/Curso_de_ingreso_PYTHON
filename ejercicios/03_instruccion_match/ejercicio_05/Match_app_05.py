@@ -16,7 +16,6 @@ mostrar mediante alert el mensaje ‘Es de mañana’
 si la hora ingresada está entre las 7 y las 11
 '''
 
-
 class App(customtkinter.CTk):
     
     def __init__(self):

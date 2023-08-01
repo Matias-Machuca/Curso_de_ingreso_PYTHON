@@ -12,9 +12,8 @@ Div: I
 Ejercicio: entrada_salida_02
 ---
 Enunciado:
-Al presionar el botón  'Mostrar', se deberá obtener un dato utilizando 
-el Dialog Prompt
-y luego mostrarlo utilizando el Dialog Alert
+Al presionar el botón 'Mostrar', se deberá obtener un dato utilizando 
+el Dialog Prompt y luego mostrarlo utilizando el Dialog Alert
 '''
 
 class App(customtkinter.CTk):
@@ -33,8 +32,7 @@ class App(customtkinter.CTk):
         nombre = prompt("Nombre", "Ingrese su nombre")
         alert("Mensaje", nombre)
         
-        
-    
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

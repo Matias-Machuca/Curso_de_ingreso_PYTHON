@@ -13,7 +13,6 @@ Enunciado:
 Al presionar el botón ‘Comenzar ingreso’, solicitar 5 números mediante prompt. 
 Calcular la suma acumulada y el promedio de los números ingresados. 
 Luego informar los resultados en las cajas de texto txt_suma_acumulada y txt_promedio
-
 '''
 
 class App(customtkinter.CTk):
@@ -35,25 +34,26 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        numero = 0
+        contador = 0
         suma_acumulada = 0
 
-        while numero < 5:
-            numero += 1
-            numero_suma = prompt("Ingreso", "Ingrese un numero")
-            numero_suma = float(numero_suma)
-            suma_acumulada += numero_suma
+        while contador < 5:
+            contador += 1
+            numero = prompt("Ingreso", "Ingrese un numero")
+            while numero is None or not numero.isdigit():
+                numero = prompt("Ingreso", "Ingrese un valor numerico")
+            numero = int(numero)
+            suma_acumulada += numero
 
-        promedio = suma_acumulada / 5
+        promedio = suma_acumulada / contador
     
         self.txt_suma_acumulada.delete(0, 100)
-        self.txt_suma_acumulada.insert(0, suma_acumulada)
+        self.txt_suma_acumulada.insert(0, "Acumulado: " + str(suma_acumulada))
 
         self.txt_promedio.delete(0, 100)
-        self.txt_promedio.insert(0, promedio)
+        self.txt_promedio.insert(0, "Promedio: " + str(promedio))
 
 
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

@@ -16,7 +16,6 @@ mediante prompt. Comprobar que la contraseña ingresada sea ‘utn750’.
 En caso de no coincidir, volverla a solicitar hasta que coincidan
 '''
 
-
 class App(customtkinter.CTk):
     
     def __init__(self):
@@ -32,12 +31,10 @@ class App(customtkinter.CTk):
         contraseña = prompt("Password", "Contraseña:")
 
         while contraseña != "utn750":
-            alert("Ingreso denegado", "Ingrese la contraseña correcta.")
+            alert("Acceso denegado", "Ingrese la contraseña correcta.")
             contraseña = prompt("Password", "Contraseña:")
-
-        alert("Ingreso autorizado", "Bienvenida/o!!!")
+        alert("Ingreso autorizado", "¡Bienvenida/o!")
             
-    
     
 if __name__ == "__main__":
     app = App()

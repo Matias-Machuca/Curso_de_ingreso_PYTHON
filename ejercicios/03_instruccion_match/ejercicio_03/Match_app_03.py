@@ -18,7 +18,6 @@ mensajes en función del mes seleccionado:
 
 '''
 
-
 class App(customtkinter.CTk):
     
     def __init__(self):
@@ -48,8 +47,6 @@ class App(customtkinter.CTk):
         alert("Ej 3 match", mensaje)
 
 
-    
-    
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
