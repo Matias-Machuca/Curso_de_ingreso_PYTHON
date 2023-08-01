@@ -76,7 +76,7 @@ class App(customtkinter.CTk):
         self.lista_pesos = []
 
 
-    def btn_agregar_on_click(self):      
+    def btn_agregar_on_click(self):     
         peso = self.txt_peso_articulo.get()
         tipo_peso = self.combobox_tipo_de_peso.get()
 
@@ -93,6 +93,7 @@ class App(customtkinter.CTk):
 
         
     def btn_mostrar_on_click(self):
+        # B - Al precionar el boton mostrar se deberan listar los pesos en gramos, en onzas y su posicion en la lista (por terminal)
         contador = 0
         for peso in self.lista_pesos:
             print("Posicion " + str(contador) + ": " + str(peso) + " gramos" + " ó " + str(peso * 0.035274) + " onzas")
@@ -121,9 +122,9 @@ class App(customtkinter.CTk):
                 peso_minimo = self.lista_pesos[i]
                 posicion_minimo = i
         if peso_minimo is not None:
-            print("El valor en gramos del articulo mas liviano es: " + str(peso_minimo) + " y su posicion en lista es: " + str(posicion_minimo))
+            print("1 - El valor en gramos del articulo mas liviano es: " + str(peso_minimo) + " y su posicion en lista es: " + str(posicion_minimo))
         else:
-            print("La lista esta vacia")
+            print("1 - La lista esta vacia")
 
 
         # 2 - Peso promedio (en onzas)
@@ -132,9 +133,9 @@ class App(customtkinter.CTk):
             acumulador_pesos += self.lista_pesos[i]
         if len(self.lista_pesos) != 0:
             promedio_onzas = (acumulador_pesos * 0.035274) / len(self.lista_pesos)
-            print("El promedio en onzas es: " + str(promedio_onzas))
+            print("2 - El promedio en onzas es: " + str(promedio_onzas))
         else:
-            print("La lista esta vacia")
+            print("2 - La lista esta vacia")
 
 
         # 3 - Peso promedio (en gramos)
@@ -143,21 +144,21 @@ class App(customtkinter.CTk):
             acumulador_pesos += self.lista_pesos[i]
         if len(self.lista_pesos) != 0:
             promedio_gramos = acumulador_pesos / len(self.lista_pesos)
-            print("El promedio en gramos es: " + str(promedio_gramos))
+            print("3 - El promedio en gramos es: " + str(promedio_gramos))
         else:
-            print("La lista esta vacia")
+            print("3 - La lista esta vacia")
 
 
         # 4 - Informar los pesos que superan el promedio (en gramos)
         for i in range(0, len(self.lista_pesos), 1):
             if self.lista_pesos[i] > promedio_gramos:
-                print("Pesos que superan el promedio (en gramos): \n" + str(self.lista_pesos[i]))
+                print("4 - Pesos que superan el promedio (en gramos): \n" + str(self.lista_pesos[i]))
 
 
         # 5 - Informar los pesos que NO superan el promedio (en onzas)
         for i in range(0, len(self.lista_pesos), 1):
             if self.lista_pesos[i] < promedio_gramos:
-                print("Pesos que no superan el promedio (en onzas): \n" + str(self.lista_pesos[i]))
+                print("5 - Pesos que no superan el promedio (en onzas): \n" + str(self.lista_pesos[i]))
 
 
         # 6 - Informar la cantidad de articulos que superan el peso promedio
@@ -165,7 +166,7 @@ class App(customtkinter.CTk):
         for i in range(0, len(self.lista_pesos), 1):
             if self.lista_pesos[i] > promedio_gramos:
                 contador_articulos_sobre_promedio += 1
-        print("Cantidad de productos que superan el peso promedio: " + str(contador_articulos_sobre_promedio))
+        print("6 - Cantidad de productos que superan el peso promedio: " + str(contador_articulos_sobre_promedio))
 
 
         # 7 - Informar la cantidad de articulos que NO superan el peso promedio
@@ -173,16 +174,23 @@ class App(customtkinter.CTk):
         for i in range(0, len(self.lista_pesos), 1):
             if self.lista_pesos[i] < promedio_gramos:
                 contador_articulos_bajo_promedio += 1
-        print("Cantidad de productos que no superan el peso promedio: " + str(contador_articulos_bajo_promedio))
+        print("7 - Cantidad de productos que no superan el peso promedio: " + str(contador_articulos_bajo_promedio))
 
 
         # 8 - Indicar los pesos repetidos (gramos)
-        
+        lista_repetidos_gramos = []
+        for peso in self.lista_pesos:
+            if self.lista_pesos.count(peso) > 1 and lista_repetidos_gramos.count(peso) == 0:
+                lista_repetidos_gramos.append(peso)
+        print("8 - Pesos repetidos en gramos: " + str(lista_repetidos_gramos))
 
 
-
-
-        #  - Indicar los pesos NO repetidos (gramos)
+        # 9 - Indicar los pesos NO repetidos (gramos)
+        lista_no_repetidos_gramos = []
+        for peso in self.lista_pesos:
+            if self.lista_pesos.count(peso) == 1:
+                lista_no_repetidos_gramos.append(peso)
+        print("9 - Pesos no repetidos en gramos: " + str(lista_no_repetidos_gramos))
 
 
 if __name__ == "__main__":
