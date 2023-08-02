@@ -37,26 +37,32 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        respuesta = True
+
         acumulador_positivos = 0
         acumulador_negativos = 1
 
-        while respuesta == True:
-            numero = prompt("Ingreso", "Ingrese un numero")
-            numero = float(numero)
+        numero = prompt("Ingreso", "Ingrese un numero")
+        while numero is not None:
+            numero = int(numero)
             if numero > 0:
                 acumulador_positivos += numero
             elif numero < 0:
                 acumulador_negativos *= numero
-            elif numero == 0:
+            if numero is None or numero == 0:
                 break
-            respuesta = question("¿Seguimos?", "¿Desea ingresar otro numero?")
+            numero = prompt("Ingreso", "Ingrese otro numero")
+        
+        if acumulador_negativos == 1:
+            mensaje = "No se ingresaron negativos"
+        else:
+            mensaje = str(acumulador_negativos)
 
         self.txt_suma_acumulada.delete(0, 100)
-        self.txt_suma_acumulada.insert(0, acumulador_positivos)
+        self.txt_suma_acumulada.insert(0, "Suma positivos: " + str(acumulador_positivos))
 
         self.txt_producto.delete(0, 100)
-        self.txt_producto.insert(0, acumulador_negativos)
+        self.txt_producto.insert(0, "Producto neg: " + mensaje)
+
     
 if __name__ == "__main__":
     app = App()

@@ -19,9 +19,7 @@ Luego calcular:
     Cantidad de números negativos ingresados
     Cantidad de ceros
     Diferencia entre la cantidad de los números positivos ingresados y los negativos
-
 Informar los resultados mediante alert()
-
 '''
 
 class App(customtkinter.CTk):
@@ -37,16 +35,16 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        respuesta = True
+
         acumulador_negativos = 0
         acumulador_positivos = 0
         contador_negativos = 0
         contador_positivos = 0
         contador_ceros = 0
 
-        while respuesta:
-            numero = prompt("Ingreso", "Ingrese un numero")
-            numero = float(numero)
+        numero = prompt("Ingreso", "Ingrese un numero")
+        while numero is not None:
+            numero = int(numero)
             if numero < 0:
                 acumulador_negativos += numero
                 contador_negativos += 1
@@ -55,8 +53,9 @@ class App(customtkinter.CTk):
                 contador_positivos += 1
             else:
                 contador_ceros += 1
-                
-            respuesta = question("¿Continuar?", "¿Desea ingresar otro numero?")
+            if numero is None:
+                break    
+            numero = prompt("Ingreso", "Ingrese un numero")
 
         diferencia_positivos_negativos = contador_positivos - contador_negativos
 

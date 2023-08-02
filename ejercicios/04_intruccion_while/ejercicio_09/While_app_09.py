@@ -14,9 +14,7 @@ Al presionar el botón ‘Comenzar ingreso’, solicitar mediante prompt todos l
 números que el usuario quiera hasta que presione el botón Cancelar (en el prompt). 
 Luego determinar el máximo y el mínimo e informarlos en los cuadros de textos
 txt_maximo y txt_minimo respectivamente.
-
 '''
-
 
 class App(customtkinter.CTk):
 
@@ -40,24 +38,30 @@ class App(customtkinter.CTk):
                               columnspan=2, sticky="nsew")
 
     def btn_comenzar_ingreso_on_click(self):
-        respuesta = True
-        minimo = None
-        maximo = None
 
-        while respuesta == True:
-            numero = prompt("Ingreso", "Ingresa un numero")
+        bandera_max_min = True
+
+        numero = prompt("Ingreso", "Ingrese un numero")
+        while numero is not None:
             numero = int(numero)
-            if minimo is None or numero < minimo:
-                minimo = numero
-            if maximo is None or numero > maximo:
+            if bandera_max_min == True:
                 maximo = numero
-            respuesta = question("¿Seguir?", "¿Queres ingresar otro numero?")
-
-        self.txt_minimo.delete(0, 100)
-        self.txt_minimo.insert(0, minimo)
+                minimo = numero
+                bandera_max_min = False
+            if numero > maximo:
+                maximo = numero
+            elif numero < minimo:
+                minimo = numero
+            if numero is None:
+                break
+            numero = prompt("Ingreso", "Ingrese otro numero")
 
         self.txt_maximo.delete(0, 100)
-        self.txt_maximo.insert(0, maximo)
+        self.txt_maximo.insert(0, "Numero maximo: " + str(maximo))
+
+        self.txt_minimo.delete(0, 100)
+        self.txt_minimo.insert(0, "Numero minimo: " + str(minimo))
+
 
 if __name__ == "__main__":
     app = App()
