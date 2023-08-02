@@ -40,7 +40,6 @@ class App(customtkinter.CTk):
             alert("Saludo", "Hola UTN FRA " + str(i + 1))
 
 
-
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

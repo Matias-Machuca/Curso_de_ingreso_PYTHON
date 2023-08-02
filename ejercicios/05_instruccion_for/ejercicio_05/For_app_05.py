@@ -29,16 +29,12 @@ class App(customtkinter.CTk):
     def btn_mostrar_on_click(self):
 
         for _ in iter(int, 1):
-            respuesta = question("Alerta", "¿Desea continuar?")
+            respuesta = question("Bucle For", "¿Desea continuar?")
             if respuesta is False:
                 break
 
-        alert("Mensaje", "¡Hasta la vista baby!")
+        alert("Escape del bucle", "¡Hasta la vista baby!")
 
-
-
-        #respuesta = question("question", "Pregunta")
-        #print(respuesta)
 
 if __name__ == "__main__":
     app = App()

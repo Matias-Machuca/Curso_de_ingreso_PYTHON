@@ -26,16 +26,27 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
 
+        contador_numeros_divisores = 1
+        cantidad_divisores = 0
+
         numero = prompt("Ingreso", "Ingrese un numero")
         while numero is None or not numero.isdigit():
             numero = prompt("Error", "Ingresar solo numeros")
         numero = int(numero)
 
-        for i in range(0, 1, 1):
-            if numero % numero != 0:
-                alert("Primos", "El numero " + str(i) + " es primo")
-            else:
-                alert("Primos", "El numero " + str(i) + " no es primo")
+        for i in range(1, numero, 1):
+            cantidad_divisores += 1
+            if numero % cantidad_divisores == 0:
+                contador_numeros_divisores += 1
+        if contador_numeros_divisores == 2:
+            mensaje = "Es primo"
+        elif contador_numeros_divisores > 2 or numero == 1:
+            mensaje = "No es primo"
+        if numero == 0:
+            mensaje = "Es un numero aparte"
+
+        alert("¿Primo?", mensaje)
+
     
 if __name__ == "__main__":
     app = App()

@@ -27,7 +27,7 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
 
-        contador_numeros_divisores = 0
+        contador_numeros_divisores = 1
         cantidad_divisores = 0
 
         numero = prompt("Ingreso", "Ingrese un numero")
@@ -40,11 +40,10 @@ class App(customtkinter.CTk):
             if numero % cantidad_divisores == 0:
                 contador_numeros_divisores += 1
                 alert("Divisores", str(i))
-                
         # Alert para mostrar el numero ingresado, de lo contrario no aparece.
         alert("Divisores", str(numero))
                 
-        alert("Total Divisores", "Numeros divisores encontrados: " + str(contador_numeros_divisores + 1))
+        alert("Total Divisores", "Numeros divisores encontrados: " + str(contador_numeros_divisores))
     
 if __name__ == "__main__":
     app = App()

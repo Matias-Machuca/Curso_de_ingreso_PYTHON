@@ -34,7 +34,9 @@ class App(customtkinter.CTk):
             valor = int(valor)
             if valor == 9:
                 break
+            
         alert("alert", "Estoy fuera del bucle")
+
 
 if __name__ == "__main__":
     app = App()

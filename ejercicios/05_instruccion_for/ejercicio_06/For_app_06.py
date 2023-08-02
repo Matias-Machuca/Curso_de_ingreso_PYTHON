@@ -41,6 +41,7 @@ class App(customtkinter.CTk):
 
         alert("Pares", "Numeros pares encontrados: " + str(contador_numeros_pares))
         
+        
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
