@@ -34,10 +34,11 @@ class App(customtkinter.CTk):
         for numero in self.lista_datos:
             acumulador_lista += numero
 
-        promedio = acumulador_lista / len(self.lista_datos)
+        promedio_lista = acumulador_lista / len(self.lista_datos)
 
-        alert("Promedio", "El promedio de los numeros en la lista es: " + str(promedio))
+        alert("Promedio", "El promedio de los numeros de la lista es: " + str(promedio_lista))
     
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

@@ -34,9 +34,11 @@ class App(customtkinter.CTk):
         for numero in self.lista_datos:
             if numero < minimo_de_lista:
                 minimo_de_lista = numero
-        alert("Numero Minimo", "El numero minimo de la lista es: " + str(minimo_de_lista))
+        alert("Numero Minimo", "El " + str(minimo_de_lista) + " es el menor numero de la lista.")
+
     
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
     app.mainloop()
+    

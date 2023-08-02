@@ -10,8 +10,7 @@ Apellido: Machuca
 Div: "I"
 
 Al presionar el botón 'MÁXIMO' se analizará el vector lista_datos a efectos de determinar
-cuál es el número más grande allí contenido el cual deberá ser informado utilizando
-Dialog Alert.
+cuál es el número más grande allí contenido el cual deberá ser informado utilizando Dialog Alert.
 '''
 
 class App(customtkinter.CTk):
@@ -35,8 +34,9 @@ class App(customtkinter.CTk):
         for numero in self.lista_datos:
             if numero > maximo_de_lista:
                 maximo_de_lista = numero
-        alert("Numero Maximo", "El numero maximo de la lista es: " + str(maximo_de_lista))
+        alert("Numero Maximo", "El " + str(maximo_de_lista) + " es el numero mas grande de la lista.")
         
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

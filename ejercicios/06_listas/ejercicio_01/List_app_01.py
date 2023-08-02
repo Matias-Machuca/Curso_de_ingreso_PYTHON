@@ -29,8 +29,9 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
 
-        for elemento_de_lista in self.lista_datos:
-            alert("Elementos", str(elemento_de_lista))
+        for elemento in self.lista_datos:
+            alert("Elementos", str(elemento))
+            
     
 if __name__ == "__main__":
     app = App()

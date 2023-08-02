@@ -35,19 +35,18 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
 
-        for numeros_de_lista in self.lista_datos:
-            alert("Numeros", str(numeros_de_lista))
-        self.lista_datos.clear()
+        for elementos in self.lista_datos:
+            alert("Numeros", str(elementos))
         
         
     def btn_cargar_on_click(self):
 
         self.lista_datos.clear()
         
-        for numero in range(3):
+        for i in range(0,3,1):
             numero = prompt("Ingreso", "Ingrese un numero")
             while numero is None or not numero.isdigit():
-                numero = prompt("Ingreso", "Ingrese un numero")
+                numero = prompt("Ingreso", "Ingrese un valor numerico")
             numero = int(numero)
             self.lista_datos.append(numero)
     
